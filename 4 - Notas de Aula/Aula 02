@@ -1,1 +1,26 @@
 Pode-se retirar o chip da placa MSP e inserir em uma protoboard. Assim, identificar quais são as entradas para programar e utilizar a palca na protoboard para programar.
+--------------------------------------------------------------------------------------------------------------------
+P1.X ou P2.X são entradas e saídas digitais
+TAX são timers
+TA1 e TA0 podem ser utilizados como comparadores além de timers.
+AX+ e AX- são utilizados nos conversores AD
+VREF pode ser utilizado para setar a tensão de referência
+ACLK e SMCLK são clocks
+SCLK SDO e SCL são utilizados para comunicação serial (SPI e I2C)
+XIN e XOUT são utilizados para utilizar um cristal externo
+_RST é utilizado para resetar o MSP430 quando levado ao baixo nível
+--------------------------------------------------------------------------------------------------------------------
+O MSP trabalha com dados de 16 bits, ou seja, dois bytes. Assim, a memória utiliza duas paklavras de dois bytes.
+A organização dos bytes é feita da seguinte forma: o byte menos significante utiliza a memória acima e o less byte significant utiliza a primeira memória ou a memória mais baixa. Por exemplo, MSB ocupa o 0x0201 e o LSB ocupa o 0x0200.
+
+O primeiro endereço é o 0x0000 (IEI - Interrupt Enable | Register) e o último é o 0xFFFF.
+O endereço de uma palavra de dois bytes é dado pelo endereço menor que é sempre par e essa palavra é lida em um ciclo de clock do barramento.
+
+Como o menos significativo fica no menor endereço, esse sistema de memória é little-endian. O Contrário é o big-endian.
+--------------------------------------------------------------------------------------------------------------------
+
+Perguntas a serem pesquisadas:
+
+- TACLK é o quê?
+- Qual a diferença de _RST e Interrupt
+- Preciso do Emulation, JTAG e do Spy by Wire para programar na protoboard?
