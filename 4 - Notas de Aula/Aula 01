@@ -1,1 +1,23 @@
 Vantagem da Arquitetura Harvard é que o acesso às memórias ROM e RAM podem ser feitos paralelamente, aumentando a velocidade de processamento e de acesso às instruções e às memórias.
+--------------------------------------------------------------------------------------------------------------------
+Microcontroladores não possuem sistemas operacionais. O programa que você cria substitui o sistema operacional.
+--------------------------------------------------------------------------------------------------------------------
+Assembly são os opcodes traduzidos para palavras.
+--------------------------------------------------------------------------------------------------------------------
+Caso se queira deslocar os bits de um byte para a esquerda:
+char a = 0x81; 1000 0001 -> 0000 0011
+a = (a<<1))+(a>>7);
+Primeiro desloca-se um bit para a esquerda
+Segundo desloca-se sete bits para a direita
+Soma-se esses dois registradores
+Essa função em assembly é a rotate
+--------------------------------------------------------------------------------------------------------------------
+Arquitetura von Neumann é otimizada para a utilização de energia
+--------------------------------------------------------------------------------------------------------------------
+
+Perguntas a serem pesquisadas:
+
+- Qual o conceito de sistema operacional?
+- Como funciona os decodificadores de instruções?
+- Diferença entre float e int?
+- Programação entre os variados mdoelos de MSP são iguais ou se diferem?
