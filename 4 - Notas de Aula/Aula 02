@@ -18,9 +18,31 @@ O endereço de uma palavra de dois bytes é dado pelo endereço menor que é sem
 
 Como o menos significativo fica no menor endereço, esse sistema de memória é little-endian. O Contrário é o big-endian.
 --------------------------------------------------------------------------------------------------------------------
-
+CPU roda na frequência máxima 16 MHz.
+Caso velocidade seja uma necessidade, um sistema embarcado não é a melhor opção pois um embarcado roda paralelos programas simultaneamente.
+Seu estado não é perdido quando a alimentação é cessada.
+Registradores não estão na memória principal e sim na CPU.
+Um stack pointer (SP) também é utilizado quando no meio do seu algoritmo há a chamada de uma outra função pois ele deve saber em qual linha ele deve voltar no algoritmo passado. 
+O "return" se referencia aos dados alocados nas pilhas
+--------------------------------------------------------------------------------------------------------------------
+P1OUT|=2; o  que essa porra significa? Isso é uma forma de mascarar o bit ou bits de uma palavra;
+XOR inverte utilizando 1. Quando você seta um bit, esse bit da outra palavra será invertida;
+OR seta um bit utilizando 1. Quando você seta um bit, esse bit será setado;
+AND zera um bit utilizando 0. Quando você reseta um bit, esse bit será resetado;
+--------------------------------------------------------------------------------------------------------------------
+Setar P1.1 --> P1OUT|=2;
+Zerar P1.2 --> P1OUT &= ~4;
+Inverter P1.3 --> P1OUT ~=BIT3;
+--------------------------------------------------------------------------------------------------------------------
+Para você poder utilizar BITO como 0x0000, BIT1 como 0x0001... Basta incluir a biblioteca msp no iníci do seu código
+-------------------------------------------------------------------------------------------------------------------- 
+P1DIR é para dizer se os pinos são de entrada ou de saída. Para setar o pino como entrada você reseta o pino. Para o pino ser saída, você seta o pino. Ou seja, Entrada = 0 e saída = 1.
+P1DIR |= BIT 1 + BIT2 + BIT3 + BIT6;
+-------------------------------------------------------------------------------------------------------------------- 
+SE COLOCA ESSAS OPERAÇÕES ANTES DOS IGUAIS PARA PRESERVAR OS SINAIS ANTERIORES QUE ESTAVAM NESSES BITS
+-------------------------------------------------------------------------------------------------------------------- 
 Perguntas a serem pesquisadas:
 
 - TACLK é o quê?
-- Qual a diferença de _RST e Interrupt
+- Qual a diferença de _RST e Interrupt?
 - Preciso do Emulation, JTAG e do Spy by Wire para programar na protoboard?
