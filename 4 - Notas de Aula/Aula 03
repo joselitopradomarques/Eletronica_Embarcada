@@ -1,0 +1,22 @@
+Para usar os P1.3 e não acender o LED, basta retirar o jumper que fica ao lado do botão ligado ao P1.2
+P1DIR define entradas e saídas
+P1OUT seta ou reseta saídas
+-------------------------------------------------------------------------------------------------------------------- 
+for(;;)
+{} ou while(1) são loops infinitos
+--------------------------------------------------------------------------------------------------------------------
+Quando usamos um #define, não se ocupa espaço na memória, apenas do compilador
+-------------------------------------------------------------------------------------------------------------------- 
+Quando queremos setar um bit, utilizamos o OR
+-------------------------------------------------------------------------------------------------------------------- 
+volatile unsigned serve para o compilador não jogar fora a parte da função que aparentemente não faz nada já que não altera nenhum dados e apenas testa valores por exemplo
+--------------------------------------------------------------------------------------------------------------------
+BTN -> BIT3
+~BTN -> BIT3 invertido
+Portando, quando se usa & e ~, está zerando um bit
+--------------------------------------------------------------------------------------------------------------------
+P1REN: Resistor Enable que pode ser tanto pullup quando pulldown
+P1OUT no BTN vai selecionar pulldown ou pullup para esse bit específico
+--------------------------------------------------------------------------------------------------------------------
+Perguntas a serem pesquisadas:
+- Entender o funcionamento do P1IN & BTN. Sei que serve para verificar o estado do botão mas não ser precisamente como funciona precisamente.
