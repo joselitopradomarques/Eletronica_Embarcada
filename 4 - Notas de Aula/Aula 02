@@ -46,3 +46,4 @@ Perguntas a serem pesquisadas:
 - TACLK é o quê?
 - Qual a diferença de _RST e Interrupt?
 - Preciso do Emulation, JTAG e do Spy by Wire para programar na protoboard?
+- O que é resistor de pullup e pulldown?
