@@ -47,3 +47,4 @@ Perguntas a serem pesquisadas:
 - Qual a diferença de _RST e Interrupt?
 - Preciso do Emulation, JTAG e do Spy by Wire para programar na protoboard?
 - O que é resistor de pullup e pulldown?
+Resistor pullup é conectado ao Vcc e Pulldown é conectado ao terra. Só isso.
