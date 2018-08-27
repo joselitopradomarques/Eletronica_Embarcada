@@ -1,0 +1,3 @@
+Diferença entre definir a biblioteca utilizando <> e '', por exemplo, 
+#include <arq.h> e #include "arq.h"
+O primeiro caso, o compilador procurará em várias pastas? Já no segundo caso, ele procurará apenas na pasta onde o main.c está localizado.
