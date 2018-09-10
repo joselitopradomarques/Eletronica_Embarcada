@@ -1,0 +1,75 @@
+5. (a) Escreva uma função em C que indica a primalidade de uma variável inteira sem sinal, retornando o valor 1 se o número for primo, e 0, caso contrário. Siga o seguinte protótipo:
+
+```C
+int Primalidade(unsigned int x);
+```
+
+(b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. A variável de entrada é fornecida pelo registrador R15, e o valor de saída também.
+-----------------------------------------------------------------------------------------------------------------------------
+
+Como determinar se o número é primo
+Comparará desde n/2 até n/n
+
+int primalidade (unsigned int x)
+
+{   unsigned int d; % ;é o que vai testar o resto das divisões
+
+        if(x<2) return 0;
+        % Por definição, números menores que dois não são primos
+        % Para verificar se o número é divisível por dois, verifica-se o último bit. Caso ele seja 0, ele é par.
+        % Para isso, utilizar-se-á uma máscara
+        if ((x&1)==0)
+          return 0
+          
+        % Agora, testaremos todos os outros primo utilizando o int d
+        d=x/2;
+        while(d>2)
+          {
+            if ((x%d)==0)
+            return 0;
+            d--;
+          }
+          return 1;
+          }
+          % Se ele chega a retornar 1, ele testou todos valores então ele é primo
+          
+          b) Criar o assembly arquivo dessa questão
+          
+Primalidade : push R4, d
+              comp #2, R15
+              jge teste_par
+              pop R4
+              clr R15
+              ret
+Teste_par   : mov R15, R14
+              and #1, R14
+              comp #0, R14
+              jeq prim_zero
+Teste_impar : mov R15, R4
+              rra R4 %d=x/2;
+Prim_while  : cmp #2, R4
+              jeq Prim_and
+              push R15
+              move R4, R14
+              call Resto_uns
+              move R15, R14
+              pop R15
+              comp#0, R14
+              jeq Prim_zero
+              dec R4
+              jmp Prim_while        
+Prim_end:     pop R4
+              move #1, R15
+              ret
+              
+              
+Prim_and    : pop R4
+              mov #1, R15
+              ret
+              
+              
+              
+              
+              
+              
+              
