@@ -25,15 +25,15 @@ int main(void)
 
 Para este código, responda:\
 	(a) A variável i é armazenada na memória RAM ou ROM? Por quê?\
-		A variável i é armazenada na\
+		A variável i é armazenada na memória RAM já que o acesso dela é aleatório e esse dado pode ser apagado.\
 	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?\
 		A variável é alocada na RAM, visto que a memória ROM possui escrita lenta em comparação à memória RAM.\
 		
-4.	Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
-		As diferenças entre as arquiteturas estão no barramento de dados para a ROM pois na arquitetura Harvard, a ROM só pode ser escrita, porém na arquitetura von Neumann, a ROM também pode ser escrtita, apesar da baixa velocidade.
-		As vantagens da arquitetura Harvard incluem a possibilidade do acesso simultâneo das duas memórias, aumentandoa velocidade de processamento, de forma que pode buscar uma nova instrução enquanto executa a outra. Além disso, pode-se também ler uma instrução ao mesmo tempo que faz um acesso à memória de dados.
-		Já a arquitetura Von Neumann utiliza uma arquitetura mais simples, dessa forma, mais lenta pois o barramento de dados é mais limitada em comparação com a arquitetura Harvard.
-		Uma arrquitetura mais simples permite um preço menor, de forma que acaba se tornando uma vantagem para ela para funções que não demandem um processamento mais rápido.
+4.	Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?\
+		As diferenças entre as arquiteturas estão no barramento de dados para a ROM pois na arquitetura Harvard, a ROM só pode ser escrita, porém na arquitetura von Neumann, a ROM também pode ser escrtita, apesar da baixa velocidade.\
+		As vantagens da arquitetura Harvard incluem a possibilidade do acesso simultâneo das duas memórias, aumentandoa velocidade de processamento, de forma que pode buscar uma nova instrução enquanto executa a outra. Além disso, pode-se também ler uma instrução ao mesmo tempo que faz um acesso à memória de dados.\
+		Já a arquitetura Von Neumann utiliza uma arquitetura mais simples, dessa forma, mais lenta pois o barramento de dados é mais limitada em comparação com a arquitetura Harvard.\
+		Uma arquitetura mais simples permite um preço menor, de forma que acaba se tornando uma vantagem para ela para funções que não demandem um processamento mais rápido.\
 		
 5.	Considere a variável inteira i, armazenando o valor 0x8051ABCD. Se i é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é: (a) Little-endian; (b) Big-endian.
 	a Little-Endian:
