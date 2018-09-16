@@ -1,5 +1,5 @@
-1.	Quais as diferenças entre os barramentos de dados e de endereços?
-	\O barramento de endereços apenas transmite endereços partindo da CPU em direção à memória RAM e a ROM.
+1.	Quais as diferenças entre os barramentos de dados e de endereços? 
+	\ O barramento de endereços apenas transmite endereços partindo da CPU em direção à memória RAM e a ROM.
 	\Já o barramento de dados pode tanto ler quanto escrever da ROM, RAM e Single Memory Space para a CPU.
 
 2.	Quais são as diferenças entre as memórias RAM e ROM?
