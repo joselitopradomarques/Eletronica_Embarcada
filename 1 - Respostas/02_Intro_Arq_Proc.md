@@ -8,6 +8,7 @@
 
 3.	Considere o código abaixo:
 
+```C
 #include <stdio.h>
 int main(void)
 {
@@ -20,6 +21,8 @@ int main(void)
 		printf("%d eh par.\n");
 	return 0;
 }
+```
+
 Para este código, responda:
 	(a) A variável i é armazenada na memória RAM ou ROM? Por quê?
 		A variável i é armazenada na 
