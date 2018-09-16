@@ -23,11 +23,11 @@ int main(void)
 }
 ```
 
-Para este código, responda:
-	(a) A variável i é armazenada na memória RAM ou ROM? Por quê?
-		A variável i é armazenada na 
-	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?
-		A variável é alocada na RAM, visto que a memória ROM possui escrita lenta em comparação à memória RAM.
+Para este código, responda:\
+	(a) A variável i é armazenada na memória RAM ou ROM? Por quê?\
+		A variável i é armazenada na\
+	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?\
+		A variável é alocada na RAM, visto que a memória ROM possui escrita lenta em comparação à memória RAM.\
 		
 4.	Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
 		As diferenças entre as arquiteturas estão no barramento de dados para a ROM pois na arquitetura Harvard, a ROM só pode ser escrita, porém na arquitetura von Neumann, a ROM também pode ser escrtita, apesar da baixa velocidade.
