@@ -25,7 +25,7 @@ int main(void)
 
 Para este código, responda:\
 	(a) A variável i é armazenada na memória RAM ou ROM? Por quê?\
-	- A variável i é armazenada na memória RAM já que o acesso dela é aleatório e esse dado pode ser apagado.
+	- A variável i é armazenada na memória RAM já que o acesso dela é aleatório e esse dado pode ser apagado.\
 	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?\
 	- A variável é alocada na RAM, visto que a memória ROM possui escrita lenta em comparação à memória RAM.
 		
