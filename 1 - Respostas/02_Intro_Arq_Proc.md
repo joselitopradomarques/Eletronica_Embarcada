@@ -30,7 +30,7 @@ Para este código, responda:\
 	- A variável é alocada na RAM, visto que a memória ROM possui escrita lenta em comparação à memória RAM.
 		
 4.	Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?\
-		- As diferenças entre as arquiteturas estão no barramento de dados para a ROM pois na arquitetura Harvard, a ROM só pode ser escrita, porém na arquitetura von Neumann, a ROM também pode ser escrtita, apesar da baixa velocidade.
+		- As diferenças entre as arquiteturas estão no barramento de dados para a ROM pois na arquitetura Harvard, a ROM só pode ser escrita, porém na arquitetura von Neumann, a ROM também pode ser escrtita, apesar da baixa velocidade.\
 		- As vantagens da arquitetura Harvard incluem a possibilidade do acesso simultâneo das duas memórias, aumentandoa velocidade de processamento, de forma que pode buscar uma nova instrução enquanto executa a outra. Além disso, pode-se também ler uma instrução ao mesmo tempo que faz um acesso à memória de dados.
 		- Já a arquitetura Von Neumann utiliza uma arquitetura mais simples, dessa forma, mais lenta pois o barramento de dados é mais limitada em comparação com a arquitetura Harvard.
 		- Uma arquitetura mais simples permite um preço menor, de forma que acaba se tornando uma vantagem para ela para funções que não demandem um processamento mais rápido.
