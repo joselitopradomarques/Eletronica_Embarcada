@@ -1,5 +1,6 @@
 1. Quais as diferenças entre os barramentos de dados e de endereços?
 
+
 2. Quais são as diferenças entre as memórias RAM e ROM?
 
 3. Considere o código abaixo:
