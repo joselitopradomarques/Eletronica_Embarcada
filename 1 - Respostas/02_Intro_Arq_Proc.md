@@ -1,9 +1,9 @@
 1.	Quais as diferenças entre os barramentos de dados e de endereços?\
-	O barramento de endereços apenas transmite endereços partindo da CPU em direção à memória RAM e a ROM.
-	\Já o barramento de dados pode tanto ler quanto escrever da ROM, RAM e Single Memory Space para a CPU.
+	O barramento de endereços apenas transmite endereços partindo da CPU em direção à memória RAM e a ROM.\
+	Já o barramento de dados pode tanto ler quanto escrever da ROM, RAM e Single Memory Space para a CPU.
 
-2.	Quais são as diferenças entre as memórias RAM e ROM?
-	RAM (Read Aleatory Memory): É um tipo de memória volátil, ou seja, quando a sua energização é cessada, seus dados são apagados.
+2.	Quais são as diferenças entre as memórias RAM e ROM?\
+	RAM (Read Aleatory Memory): É um tipo de memória volátil, ou seja, quando a sua energização é cessada, seus dados são apagados.\
 	ROM (Read Only Memory): Já esse tipo de memória é não-volátil, ou seja, quando a sua energização é cessada, seus dados são mantidos.
 
 3.	Considere o código abaixo:
