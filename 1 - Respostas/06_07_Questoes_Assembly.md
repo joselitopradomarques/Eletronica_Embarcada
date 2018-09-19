@@ -106,6 +106,22 @@ Se o vetor for palíndromo, retorne o valor 1. Caso contrário, retorne o valor 
 
 ```C
 int Palindromo(int vetor[ ], int tamanho);
+{
+	int i; k = tamanho-1; % O vetor começa no 0 e vai até o tamanho -1. Por isso o "k" receeb tamanho -1
+	%k é o que vai percorrer o vetor de trás para frente
+	%i percorrerá o vetor do início à metade 
+	tamanho = tamanho/2 - 1;
+	for(i=0;i<=tamanho;i++,k--)
+		{
+			if(vetor[i]!=vetor[k])
+			{
+			return 0;
+			}
+		}
+		return 1;
+}
 ```
+-----------------------------------------------------------------
+
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. O endereço do vetor de entrada é dado pelo registrador R15, o tamanho do vetor é dado pelo registrador R14, e o resultado é dado pelo registrador R15.
