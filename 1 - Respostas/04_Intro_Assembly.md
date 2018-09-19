@@ -102,5 +102,21 @@ add.w R11,R12
 mov.w R12,4(R9)
 ```
 (e) `A[3] = 2*f - 4*h;`
-
+```C
+mov.w R4,R11
+add.w R11,R11
+mov.w R6,R12
+add.w R12,R12
+add.w R12,R12
+sub.w R12,R11
+mov.w R11,6(R9)
+```
 (f) `A[3] = 2*(f - 2*h);`
+```C
+mov.w R4,R11
+mov.w R6,R12
+add.w R12,R12
+sub.w R12,R11
+add.w R11,R11
+mov.w R11,6(R9)
+```
