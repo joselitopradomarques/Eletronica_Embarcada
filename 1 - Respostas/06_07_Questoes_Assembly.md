@@ -134,7 +134,7 @@ int Palindromo(int vetor[ ], int tamanho);
 		return 1;
 }
 ```
-
+-----------------------------------------------------------------
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. O endereço do vetor de entrada é dado pelo registrador R15, o tamanho do vetor é dado pelo registrador R14, e o resultado é dado pelo registrador R15.
 -----------------------------------------------------------------
 ```C
