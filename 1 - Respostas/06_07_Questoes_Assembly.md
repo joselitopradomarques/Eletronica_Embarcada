@@ -96,10 +96,6 @@ vetor_dec_inc:	inc R4
 vetor_dec_end:	pop R4
 		mov #1, R15
 		ret
-		
-		
-		
-		
 ```
 9. Escreva uma sub-rotina na linguagem Assembly do MSP430 que calcula o produto escalar de dois vetores, `a` e `b`. O primeiro endereço do vetor `a` deverá ser passado através do registrador R15, o primeiro endereço do vetor `b` deverá ser passado através do registrador R14, e o tamanho do vetor deverá ser passado pelo registrador R13. A saída deverá ser fornecida no registrador R15.
 
