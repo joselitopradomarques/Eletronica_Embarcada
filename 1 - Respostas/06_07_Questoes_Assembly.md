@@ -44,11 +44,63 @@ unsigned long long DuploFatorial(unsigned long long n);
 7. (a) Escreva uma função em C que calcula a função exponencial utilizando a série de Taylor da mesma. Considere o cálculo até o termo n = 20. O protótipo da função é `double ExpTaylor(double x);`
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430, mas considere que os valores de entrada e de saída são inteiros de 16 bits. A variável de entrada é fornecida pelo registrador R15, e o valor de saída também.
 
-8. Escreva uma sub-rotina na linguagem Assembly do MSP430 que indica se um vetor esta ordenado de forma decrescente. Por exemplo:
+8. Escreva uma sub-rotina na linguagem Assembly do MSP430 que indica se um vetor está ordenado de forma decrescente. Por exemplo:
 [5 4 3 2 1] e [90 23 20 10] estão ordenados de forma decrescente.
 [1 2 3 4 5] e [1 2 3 2] não estão.
 O primeiro endereço do vetor é fornecido pelo registrador R15, e o tamanho do vetor é fornecido pelo registrador R14. A saída deverá ser fornecida no registrador R15, valendo 1 quando o vetor estiver ordenado de forma decrescente, e valendo 0 em caso contrário.
-
+-----------------------------------------------------------------
+```C
+int Vetor_dec(int x[],int N)
+{
+	int i;
+	for (i=0; i<(N-1);i++)
+		{ if(x[i]<x[i+1])
+			{
+			return 0;
+			}
+		}
+		return 1;
+}
+```
+-----------------------------------------------------------------
+```C
+int Vetor_dec(int x[],int N)
+{
+	int i;
+	for (i=0; i<(N-1); i++, x++)
+		{ 
+			if((*x)<(*(x+1)))
+			{
+			return 0;
+			}
+		}
+		return 1;
+}
+```
+-----------------------------------------------------------------
+```C
+vetor_dec:	push R4
+		clr R4 			%i=0
+		muv R14,R13
+		dec R13 		%ESSAS DUAS ÚLTIMAS LINHAS CORRESPONDEM AO N-1
+vetor_dec_for:	cmp R13,R4
+		jge vetor_dec_end
+		cmp 2(R15),0(R15)
+		jge vetor_dec_inc
+		pop R4
+		clr R15
+		ret
+vetor_dec_inc:	inc R4
+		inc R15
+		jmp vetor_dec_for
+vetor_dec_end:	pop R4
+		mov #1, R15
+		ret
+		
+		
+		
+		
+```
 9. Escreva uma sub-rotina na linguagem Assembly do MSP430 que calcula o produto escalar de dois vetores, `a` e `b`. O primeiro endereço do vetor `a` deverá ser passado através do registrador R15, o primeiro endereço do vetor `b` deverá ser passado através do registrador R14, e o tamanho do vetor deverá ser passado pelo registrador R13. A saída deverá ser fornecida no registrador R15.
 
 10. (a) Escreva uma função em C que indica se um vetor é palíndromo. Por exemplo:
