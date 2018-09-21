@@ -90,12 +90,38 @@ END:	ret			; Saiu do loop
 for(i=0; i<100; i++) A[i] = i*2;
 ```
 ------------------------------------------------------------------------
-|f: R4|g: R5|h: R6|i: R7|j: R8|k: R9|
+|f: R4|g: R5|h: R6|i: R7|j: R8|A: R9|
 ```C
-
+	clr.w R7	;i=0;
+	mov.w #100,R11	;R11=100
+Loop:	
+	cmp R11,R7	:i<100?
+	jge EXIT	;Pule para fora do loop caso i>=100
+	mov.w R7,R12	;R12 = i; Registrador temporário
+	rla R12		;R12 = 2*i
+	add.w R9,R12	;R9 = A, R12 = 2*i, R12 = A + 2*i
+	mov.w R12,0(R12);A[i] = 2*i ----> É assim mesmo?
+	inc.w R7	;i+=1
+	jmp Loop	;Volta ao início do loop
+EXIT:	ret
 ```
 5. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
 
 ```C
 for(i=99; i>=0; i--) A[i] = i*2;
+```
+------------------------------------------------------------------------
+|f: R4|g: R5|h: R6|i: R7|j: R8|A: R9|
+```C
+	mov #99,R7	;i=99
+Loop:	
+	tst R7	:i<0?
+	jl EXIT	;Pule para fora do loop caso i<0
+	mov.w R7,R12	;R12 = i; Registrador temporário
+	rla R12		;R12 = 2*i
+	add.w R9,R12	;R9 = A, R12 = 2*i, R12 = A + 2*i
+	mov.w R12,0(R12);A[i] = 2*i ----> É assim mesmo?
+	dec.w R7	;i-=1
+	jmp Loop	;Volta ao início do loop
+EXIT:	ret
 ```
