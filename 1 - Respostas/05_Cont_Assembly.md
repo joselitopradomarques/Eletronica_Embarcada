@@ -23,19 +23,19 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores tempor√
 	(c) Somente zerar o terceiro bit menos significativo de R7.\
 	```C
 	mov.w #04,R11
-	bis.w R7,R11
+	bic.w R7,R11
 	mov.w R11,R7
 	```
 	(d) Somente zerar o terceiro e o quarto bits menos significativo de R8.\
 	```C
 	mov.w #0C,R11
-	bis.w R8,R11
+	bic.w R8,R11
 	mov.w R11,R8
 	```
 	(e) Somente inverter o bit mais significativo de R9.\
 	```C
 	mov.w #04,R11
-	bis.w R9,R11
+	xor.w R9,R11
 	mov.w R11,R9
 	```
 	(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10.\
