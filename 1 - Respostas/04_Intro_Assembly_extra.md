@@ -49,6 +49,30 @@ mov R12, 4(R9)
 ```
 
 (e) `A[3] = 3*f - 5*h;`
-
+```C
+mov R4,R11
+mov R11,R12
+add R11,R11
+add R11,R12
+mov R6,R13
+mov R13,R14
+add R14,R14
+add R14,R14
+add R13,R14
+sub R14,R12
+mov R12,6(R9)
+```
 
 (f) `A[5] = 6*(f - 2*h);`
+```C
+mov R4, R11
+mov R6,R12
+add R12,R12
+sub R12,R11
+mov R11,R13
+add R11,R11
+add R13,R13
+add R13,R13
+add R11,R13
+mov R13,10(R9)
+```
