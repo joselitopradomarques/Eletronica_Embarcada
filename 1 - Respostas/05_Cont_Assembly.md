@@ -71,6 +71,18 @@ End:	ret
 ```C
 while(save[i]!=k) i++;
 ```
+------------------------------------------------------------------------
+|f: R4|g: R5|h: R6|i: R7|j: R8|k: R9|
+```C
+LOOP:	mov.w R7,R12		;Armazenando o valor de i em um registrador temporário (R12 = i)
+	rla R12			;Multiplicando i por 2 (R12 = 2*i)
+	add.w R10, R12		;R10 = save ; R12 = save + 2*i;
+	cmp 0(R12),R9		;Comparar save[i] com k
+	jeq END			;Pular para o fim caso save[i] = k
+	inc.w R7		;i+=1;
+	jmp LOOP		:Voltar para o loop inicial pois a condicional foi aceita
+END:	ret
+```
 
 4. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
 
