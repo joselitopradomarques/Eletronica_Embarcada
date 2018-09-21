@@ -9,10 +9,19 @@ x(n+1) = (x(n) + S/x(n))/2
 O protótipo da função é:
 
 ```C
-unsigned int Raiz_Quadrada(unsigned int S);
+unsigned int Raiz_Quadrada(unsigned int S, int n);
+{
+	int i;
+	for(i=0;i<=n;i++)
+		{
+		x(i+1) = (x(i) + S/x(i))/2;
+		}
+		return x(n);
+}
 ```
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. A variável `S` é fornecida pelo registrador R15, e a raiz quadrada de `S` (ou seja, a variável `x`) é fornecida pelo registrador R15 também.
+
 
 2. (a) Escreva uma função em C que calcule `x` elevado à `N`-ésima potência, seguindo o seguinte protótipo: 
 
@@ -30,6 +39,8 @@ int Potencia(int x, int N);
 
 ```C
 int Primalidade(unsigned int x);
+{
+}
 ```
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. A variável de entrada é fornecida pelo registrador R15, e o valor de saída também.
