@@ -22,8 +22,31 @@ mov R12,R4
 ```
 
 (b) `g *= 6;`
+```C
+mov R5,R11
+add R11,R11
+mov R11,R12
+add R12,R12
+add R12,R11
+mov R11,R5
+```
 
 (d) `A[2] = 6*A[1] + 5*A[0];`
+```C
+mov 2(R9),R11
+mov 2(R9),R12
+add R11,R11
+add R11,R11
+add R12,R12
+add R11,R12
+mov 0(R9),R13
+mov 0(R9),R14
+mov R13,R13
+mov R13,R13
+add R13,R14
+add R14,R12
+mov R12, 4(R9)
+```
 
 (e) `A[3] = 3*f - 5*h;`
 
