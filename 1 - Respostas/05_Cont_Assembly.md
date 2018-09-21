@@ -10,44 +10,60 @@ Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores tempor�
 1. Escreva os trechos de código assembly do MSP430 para:\
 	(a) Somente setar o bit menos significativo de R5.\
 	```C
-	mov #01,R11
-	bis R5,R11
-	mov R11,R5
+	mov.w #01,R11
+	bis.w R5,R11
+	mov.w R11,R5
 	```
 	(b) Somente setar dois bits de R6: o menos significativo e o segundo menos significativo.\
 	```C
-	mov #03,R11
-	bis R6,R11
-	mov R11,R6
+	mov.w #03,R11
+	bis.w R6,R11
+	mov.w R11,R6
 	```
 	(c) Somente zerar o terceiro bit menos significativo de R7.\
 	```C
-	mov #04,R11
-	bis R7,R11
-	mov R11,R7
+	mov.w #04,R11
+	bis.w R7,R11
+	mov.w R11,R7
 	```
 	(d) Somente zerar o terceiro e o quarto bits menos significativo de R8.\
 	```C
-	mov #0C,R11
-	bis R8,R11
-	mov R11,R8
+	mov.w #0C,R11
+	bis.w R8,R11
+	mov.w R11,R8
 	```
 	(e) Somente inverter o bit mais significativo de R9.\
 	```C
-	mov #04,R11
-	bis R9,R11
-	mov R11,R9
+	mov.w #04,R11
+	bis.w R9,R11
+	mov.w R11,R9
 	```
 	(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10.\
 	```C
-	bis R7,R10
+	mov.w R10,R11
+	xor.w #F0,R11
+	bic.w #0F,R11
+	mov.w R11,R10
 	```
 
 2. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
 
 ```C
-if(i>j) f = g+h+10;
+if(j<i) f = g+h+10;
 else f = g-h-10;
+```
+------------------------------------------------------------------------
+|f: R4|g: R5|h: R6|i: R7|j: R8|A: R9|
+```C
+	cmp R7,R8
+	mov R5,R11
+	mov R6,R12
+	add #10,R12
+	jl Else
+	add R12,R11
+	jmp End
+Else:	sub R12,R11
+End:	ret
 ```
 
 3. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
