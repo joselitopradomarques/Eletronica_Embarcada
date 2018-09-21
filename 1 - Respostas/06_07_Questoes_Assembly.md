@@ -27,6 +27,9 @@ unsigned int Raiz_Quadrada(unsigned int S, int n);
 
 ```C
 int Potencia(int x, int N);
+{
+
+}
 ```
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. `x` e `n` são fornecidos através dos registradores R15 e R14, respectivamente, e a saída deverá ser fornecida no registrador R15.
