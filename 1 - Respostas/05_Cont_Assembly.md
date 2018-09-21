@@ -7,36 +7,40 @@ Para as questões 2 a 5, considere que as variáveis `f`, `g`, `h`, `i` e `j` s�
 	A: R9
 Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores temporários.
 
-1. Escreva os trechos de código assembly do MSP430 para:
+1. Escreva os trechos de código assembly do MSP430 para:\
 	(a) Somente setar o bit menos significativo de R5.\
 	```C
 	mov #01,R11
 	bis R5,R11
+	mov R11,R5
 	```
 	(b) Somente setar dois bits de R6: o menos significativo e o segundo menos significativo.\
 	```C
 	mov #03,R11
 	bis R6,R11
+	mov R11,R6
 	```
 	(c) Somente zerar o terceiro bit menos significativo de R7.\
 	```C
 	mov #04,R11
 	bis R7,R11
+	mov R11,R7
 	```
 	(d) Somente zerar o terceiro e o quarto bits menos significativo de R8.\
 	```C
 	mov #0C,R11
-	bis R7,R11
+	bis R8,R11
+	mov R11,R8
 	```
 	(e) Somente inverter o bit mais significativo de R9.\
 	```C
 	mov #04,R11
-	bis R7,R11
+	bis R9,R11
+	mov R11,R9
 	```
 	(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10.\
 	```C
-	mov #04,R11
-	bis R7,R11
+	bis R7,R10
 	```
 
 2. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
