@@ -59,7 +59,7 @@ else f = g-h-10;
 	mov R5,R11
 	mov R6,R12
 	add #10,R12
-	jl Else
+	jeq Else
 	add R12,R11
 	jmp End
 Else:	sub R12,R11
@@ -80,8 +80,8 @@ LOOP:	mov.w R7,R12		;Armazenando o valor de i em um registrador temporário (R12
 	cmp 0(R12),R9		;Comparar save[i] com k
 	jeq END			;Pular para o fim caso save[i] = k
 	inc.w R7		;i+=1;
-	jmp LOOP		:Voltar para o loop inicial pois a condicional foi aceita
-END:	ret
+	jmp LOOP		;Voltar para o loop inicial pois a condicional foi aceita
+END:	ret			; Saiu do loop
 ```
 
 4. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
@@ -89,7 +89,11 @@ END:	ret
 ```C
 for(i=0; i<100; i++) A[i] = i*2;
 ```
+------------------------------------------------------------------------
+|f: R4|g: R5|h: R6|i: R7|j: R8|k: R9|
+```C
 
+```
 5. "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
 
 ```C
