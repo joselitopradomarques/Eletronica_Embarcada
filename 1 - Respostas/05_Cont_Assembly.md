@@ -59,7 +59,7 @@ else f = g-h-10;
 	mov R5,R11
 	mov R6,R12
 	add #10,R12
-	jeq Else
+	jge Else
 	add R12,R11
 	jmp End
 Else:	sub R12,R11
