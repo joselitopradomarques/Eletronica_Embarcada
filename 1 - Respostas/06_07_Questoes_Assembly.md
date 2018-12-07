@@ -282,10 +282,128 @@ double ExpTaylor(double x){
 [1 2 3 4 5] e [1 2 3 2] não estão.
 O primeiro endereço do vetor é fornecido pelo registrador R15, e o tamanho do vetor é fornecido pelo registrador R14. A saída deverá ser fornecida no registrador R15, valendo 1 quando o vetor estiver ordenado de forma decrescente, e valendo 0 em caso contrário.
 
+```C
+#include<stdio.h>
+
+int Vetor_Ordenado_Decrescente(int *p,int n)
+{
+	/*Vetor_Ordenado_Decrescente é uma função que analisa se um vetor é decrescente ou não,
+	de forma que retorna 1 se for decrescente e 0 se for decrescente.
+	p* é um ponteiro que aponta para a primeira posição do vetor e n é um valor inteiro com o tamanho do vetor*/
+	
+	int i;
+	for (i=0;i<n;i++)
+	{
+		
+		if((i>0)&&(p[i] >= p[i-1]))
+		{
+			return 0;
+		}
+	}
+	/*Se todas as posições do vetor foram visualizadas, o vetor é decrescente e a função deve retornar 1.*/
+	return 1;
+}
+
+void main()
+{
+	int vetor[5],i,verificador;
+	
+	for(i=0;i<5;i++)
+	{
+		scanf("%d",&vetor[i]);	
+	}
+	
+	verificador = Vetor_Ordenado_Decrescente(vetor,5);
+	if(verificador == 1)
+	{
+		printf("O vetor ");
+		for(i=0;i<5;i++)
+		{	
+			printf("%d ",vetor[i]);
+		}	
+		printf("e' decrescente.\n");
+	}
+	else
+	{
+		printf("O vetor ");
+		for(i=0;i<5;i++)
+		{	
+			printf("%d ",vetor[i]);
+		}	
+		printf("nao e' decrescente.\n");
+	}
+	
+}
+```
 9. Escreva uma sub-rotina na linguagem Assembly do MSP430 que calcula o produto escalar de dois vetores, 'a' e 'b':
 	
 O primeiro endereço do vetor 'a' deverá ser passado através do registrador R15, o primeiro endereço do vetor 'b' deverá ser passado através do registrador R14, e o tamanho do vetor deverá ser passado pelo registrador R13. A saída deverá ser fornecida no registrador R15.
+```C
+#include<stdio.h>
 
+int MULT_signed(int a, int b)
+{
+	if(a<0 && b<0)
+	{
+		a = -a;
+		b = -b;
+		return MULT_unsigned(a,b);
+	}
+	else if (a<0 && b>0)
+	{
+		a = -a;
+		return -(MULT_unsigned(a,b));
+	}
+	else if (a>0 && b<0)
+	{
+		b = -b;
+		return -(MULT_unsigned(a,b));
+	}
+	else
+	{
+		return MULT_unsigned(a,b);
+	}
+
+}
+
+int MULT_unsigned(unsigned int a, unsigned int b)
+{
+if(b==0) return 0;
+else
+return a+MULT_unsigned(a, (b-1));
+}
+
+int Produto_Escalar_int(int *a,int *b, int n)
+{
+/*O ponteiro *a aponta para o endereço do primeiro vetor na memória e o ponteiro *b aponta para o endereço do
+do segundo vetor na memória. O número n indica o tamanho do vetor. Esta função retorna um valor inteiro.
+*/	
+
+	int i,soma=0;
+	for(i=0;i<n;i++)
+	{
+		soma += MULT_signed(a[i],b[i]);
+	}
+	return soma;
+}
+
+void main()
+{
+	int a[3],b[3],i,prod_escalar;
+	printf("Insira o valor do vetor a\n");
+	for(i=0;i<3;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("Insira o valor do vetor b\n");
+	for(i=0;i<3;i++)
+	{
+		scanf("%d",&b[i]);
+	}
+	prod_escalar = Produto_Escalar_int(a,b,3);
+	printf("O produto escalar do vetor a = <%d,%d,%d> e b = <%d,%d,%d> e' a.b = %d.\n",a[0],a[1],a[2],b[0],b[1],b[2],prod_escalar);
+}
+```
 10. (a) Escreva uma função em C que indica se um vetor é palíndromo. Por exemplo:
  	[1 2 3 2 1] e [0 10 20 20 10 0] são palíndromos.
  	[5 4 3 2 1] e [1 2 3 2] não são.
