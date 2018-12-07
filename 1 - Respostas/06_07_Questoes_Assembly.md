@@ -1,11 +1,11 @@
 Para cada questão, escreva funções em C e/ou sub-rotinas na linguagem Assembly do MSP430. Reaproveite funções e sub-rotinas de uma questão em outra, se assim desejar. Leve em consideração que as sub-rotinas são utilizadas em um código maior, portanto utilize adequadamente os registradores R4 a R11. As instruções da linguagem Assembly do MSP430 se encontram ao final deste texto.
 
 1. (a) Escreva uma função em C que calcule a raiz quadrada 'x' de uma variável 'S' do tipo float, utilizando o seguinte algoritmo: após 'n+1' iterações, a raiz quadrada de 'S' é dada por
-'''''''
+```C
 	x(n+1) = (x(n) + S/x(n))/2
-'''''''
+```
 O protótipo da função é:
-'''''''
+```C
 float RaizQuadrada(float S){
 
     int i;
@@ -19,9 +19,9 @@ float RaizQuadrada(float S){
 
     return res;
 }
-'''''''
+```
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. A variável 'S' é fornecida pelo registrador R15, e a raiz quadrada de 'S' (ou seja, a variável 'x') é fornecida pelo registrador R15 também.
-'''''''
+```C
         ;Raiz Quadrada
         ; x(n+1) = (x(n) + S/x(n))/2
         ; S = R15
@@ -61,9 +61,9 @@ float RaizQuadrada(float S){
         jne LOOP;
 
         FIM:
-	'''''''
+```
 2. (a) Escreva uma função em C que calcule 'x' elevado à 'N'-ésima potência, seguindo o seguinte protótipo: 
-
+```C
 int Potencia(int x, int n){
 
     if(n == 0){
@@ -74,9 +74,9 @@ int Potencia(int x, int n){
         return x*Potencia(x,n-1);
     }
 }
-
+```
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. 'x' e 'n' são fornecidos através dos registradores R15 e R14, respectivamente, e a saída deverá ser fornecida no registrador R15.
-
+```C
         ; Potencia
         ;x elevado a n
         ;R15 = x
@@ -116,9 +116,9 @@ int Potencia(int x, int n){
         jmp POT;
 
         FIM:
-
+```
 3. Escreva uma sub-rotina na linguagem Assembly do MSP430 que calcula a divisão de 'a' por 'b', onde 'a', 'b' e o valor de saída são inteiros de 16 bits. 'a' e 'b' são fornecidos através dos registradores R15 e R14, respectivamente, e a saída deverá ser fornecida através do registrador R15.
-
+```C
         ;Divisao
         ;R15 = a , res
         ;R14 = b
@@ -141,10 +141,10 @@ int Potencia(int x, int n){
         jge DIV;
 
         FIM:
-
+```
 
 4. Escreva uma sub-rotina na linguagem Assembly do MSP430 que calcula o resto da divisão de 'a' por 'b', onde 'a', 'b' e o valor de saída são inteiros de 16 bits. 'a' e 'b' são fornecidos através dos registradores R15 e R14, respectivamente, e a saída deverá ser fornecida através do registrador R15.
-
+```C
 	;Resto
         ;R15 = a , res
         ;R14 = b
@@ -168,9 +168,9 @@ int Potencia(int x, int n){
 
         FIM:
 
-
+```
 5. (a) Escreva uma função em C que indica a primalidade de uma variável inteira sem sinal, retornando o valor 1 se o número for primo, e 0, caso contrário. Siga o seguinte protótipo:
-
+```C
 int Primalidade(unsigned int x){
 
     int i;
@@ -185,10 +185,10 @@ int Primalidade(unsigned int x){
     return 1;
 
 }		
-	
+```	
 
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. A variável de entrada é fornecida pelo registrador R15, e o valor de saída também.
-
+```C
 	;Primalidade
         
         mov.w #17, R15;                  setando o numero
@@ -226,10 +226,10 @@ int Primalidade(unsigned int x){
         mov.w #1, R15;
   
         FIM:
-
+```
 6. Escreva uma função em C que calcula o duplo fatorial de n, representado por n!!. Se n for ímpar, n!! = 1*3*5*...*n, e se n for par, n!! = 2*4*6*...*n. Por exemplo, 9!! = 1*3*5*7*9 = 945 e 10!! = 2*4*6*8*10 = 3840. Além disso, 0!! = 1!! = 1.
 O protótipo da função é:
-
+```C
 unsigned long long Duplo_Fat(unsigned long long int x){
 
     if(x == 0){
@@ -245,11 +245,11 @@ unsigned long long Duplo_Fat(unsigned long long int x){
     }
 
 }
-
+```
 7. (a) Escreva uma função em C que calcula a função exponencial da seguinte forma:
 	
 Considere o cálculo até o termo n = 20. O protótipo da função é double ExpTaylor(double x);
-
+```C
 double ExpTaylor(double x){
 
     double exp;
@@ -272,7 +272,7 @@ double ExpTaylor(double x){
 
     return exp;
 }
-
+```
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430, mas considere que os valores de entrada e de saída são inteiros de 16 bits. A variável de entrada é fornecida pelo registrador R15, e o valor de saída também.
 
 
