@@ -3,9 +3,9 @@ Para cada questão, escreva funções em C e/ou sub-rotinas na linguagem Assembl
 1. (a) Escreva uma função em C que calcule a raiz quadrada 'x' de uma variável 'S' do tipo float, utilizando o seguinte algoritmo: após 'n+1' iterações, a raiz quadrada de 'S' é dada por
 '''''''
 	x(n+1) = (x(n) + S/x(n))/2
-
+'''''''
 O protótipo da função é:
-
+'''''''
 float RaizQuadrada(float S){
 
     int i;
@@ -19,9 +19,9 @@ float RaizQuadrada(float S){
 
     return res;
 }
-
+'''''''
 (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. A variável 'S' é fornecida pelo registrador R15, e a raiz quadrada de 'S' (ou seja, a variável 'x') é fornecida pelo registrador R15 também.
-
+'''''''
         ;Raiz Quadrada
         ; x(n+1) = (x(n) + S/x(n))/2
         ; S = R15
@@ -61,7 +61,7 @@ float RaizQuadrada(float S){
         jne LOOP;
 
         FIM:
-	
+	'''''''
 2. (a) Escreva uma função em C que calcule 'x' elevado à 'N'-ésima potência, seguindo o seguinte protótipo: 
 
 int Potencia(int x, int n){
