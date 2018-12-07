@@ -287,31 +287,62 @@ O primeiro endereço do vetor é fornecido pelo registrador R15, e o tamanho do 
 O primeiro endereço do vetor 'a' deverá ser passado através do registrador R15, o primeiro endereço do vetor 'b' deverá ser passado através do registrador R14, e o tamanho do vetor deverá ser passado pelo registrador R13. A saída deverá ser fornecida no registrador R15.
 
 10. (a) Escreva uma função em C que indica se um vetor é palíndromo. Por exemplo:
-	[1 2 3 2 1] e [0 10 20 20 10 0] são palíndromos.
-	[5 4 3 2 1] e [1 2 3 2] não são.
-Se o vetor for palíndromo, retorne o valor 1. Caso contrário, retorne o valor 0. O protótipo da função é:
-
-int Palindromo(int *vetor, int tamanho){
-
-    int j, aux;
-
-    aux = 0;
-
-    for(j = 0; j < (tamanho/2); j++){
-        if(vetor[j] != vetor[tamanho-j-1]){
-            aux = 1;
-        }
-    }
-
-    if(aux == 0){
-        return 1;
-    }
-
-    else{
-        return 0;
-    }
-
-}
-
-
-(b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. O endereço do vetor de entrada é dado pelo registrador R15, o tamanho do vetor é dado pelo registrador R14, e o resultado é dado pelo registrador R15.
+ 	[1 2 3 2 1] e [0 10 20 20 10 0] são palíndromos.
+ 	[5 4 3 2 1] e [1 2 3 2] não são.
+ Se o vetor for palíndromo, retorne o valor 1. Caso contrário, retorne o valor 0. O protótipo da função é:
+ -----------------------------------------------------------------
+ ```C
+ int Palindromo(int vetor[ ], int tamanho);
+ {
+ 	int i; k = tamanho-1; % O vetor começa no 0 e vai até o tamanho -1. Por isso o "k" recebe "tamanho -1"
+ 	%k é o que vai percorrer o vetor de trás para frente
+ 	%i percorrerá o vetor do início à metade 
+ 	tamanho = tamanho/2 - 1;
+ 	for(i=0;i<=tamanho;i++,k--)
+ 		{
+ 			if(vetor[i]!=vetor[k])
+ 			{
+ 			return 0;
+ 			}
+ 		}
+ 		return 1;
+ }
+ ```
+ -----------------------------------------------------------------
+ ```C
+ int Palindromo(int vetor[ ], int tamanho);
+ {
+ 	int *vetor_end = vetor+tamanho-1;
+ 	tamanho = tamanho/2 - 1;
+ 	for(;vetor < vetor_end; vetor++,vetor_end--)
+ 		{
+ 		???????
+ 		}
+ 		return 1;
+ }
+ ```
+ -----------------------------------------------------------------
+ (b) Escreva a sub-rotina equivalente na linguagem Assembly do MSP430. O endereço do vetor de entrada é dado pelo registrador R15, o tamanho do vetor é dado pelo registrador R14, e o resultado é dado pelo registrador R15.
+ -----------------------------------------------------------------
+ ```C
+ Palindromo:	push R4
+ 		push R5
+ 		clr R4; i=0
+ 		mov R14,R5
+ 		dec R5; k = N - 1 % N é o tamanho
+ 		rra R14
+ 		dec R14; N = N - 1
+ Palin_test:	cmp R4,R14
+ 		jl Palin_end
+ 		mov R4,R12
+ 		rla R12
+ 		add R15,R12
+ 		mov R5,R13
+ 		rla R13
+ 		add R15,R13
+ 		cmp 0(R12),0(R13)
+ 		jeq Palin_inc
+ 		pop R5
+ 		pop R4
+ 		clr R15
+ 		ret
